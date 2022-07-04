@@ -45,6 +45,11 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Calling GasPriceService
+```
+GET http://localhost:3000/gasprice
+```
+
 ## Test
 
 ```bash
