@@ -1,14 +1,14 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { IGasPrice } from './gasprice.interface';
 
 @Injectable()
 export class GaspriceService {
-  private blockNativeURL = 'https://api.blocknative.com/gasprices/blockprices';
-  private blockNativeAPIKEY = 'e41fc8b8-24a5-4fa1-bc10-64d9561ceff1';
+  private blockNativeURL = process.env.BLOCKNATIVE_URL;
+  private blockNativeAPIKEY = process.env.BLOCKNATIVE_APIKEY;
 
   constructor(private readonly httpService: HttpService) {}
 
