@@ -1,5 +1,7 @@
 import Web3 from 'web3';
 import axios from 'axios';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const API_INFURA = process.env.API_INFURA;
 const APIKEY_INFURA = process.env.APIKEY_INFURA;
@@ -7,12 +9,12 @@ const APIKEY_INFURA = process.env.APIKEY_INFURA;
 const API_BLOCKNATIVE_GASPRICE = process.env.API_BLOCKNATIVE_GASPRICE;
 const APIKEY_BLOCKNATIVE = process.env.APIKEY_BLOCKNATIVE;
 
-class TransactionChecker {
+class GasPriceChecker {
   web3;
 
   constructor() {
     this.web3 = new Web3(
-      new Web3.providers.HttpProvider(API_INFURA + APIKEY_INFURA),
+      new Web3.providers.HttpProvider(`${API_INFURA}${APIKEY_INFURA}`),
     );
   }
 
@@ -32,8 +34,8 @@ class TransactionChecker {
   }
 }
 
-let txChecker = new TransactionChecker();
+let txChecker = new GasPriceChecker();
 setInterval(() => {
   txChecker.checkGasPrice();
   txChecker.checkGasPriceFromBlocknative();
-}, 15 * 1000);
+}, 1 * 1000);
