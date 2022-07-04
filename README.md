@@ -45,7 +45,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Calling GasPriceService
+## Additional Information - Calling Endpoint.
 ```
 GET http://localhost:3000/gasprice
 ```
